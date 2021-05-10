@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
      Aarhus University
    
    Please visit http://www.baerbak.com/ for further information.
-
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
@@ -27,7 +26,6 @@ import static org.junit.Assert.*;
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-
 */
 public class TestPayStation {
   PayStation ps;
@@ -75,4 +73,13 @@ public class TestPayStation {
 	  assertEquals("Should display 14 mins for 35 cents", 35 / 5 * 2, ps.readDisplay());
   }
 
+  @Test
+  public void shouldEnter5and10And25CoinAndDisplay35() throws IllegalCoinException {
+	  ps.addPayment(5);
+	  ps.addPayment(10);
+	  ps.addPayment(25);
+	  Receipt r = ps.buy();
+	  assertEquals("Should display 40", 40, r.value());
+  }
 }
+
