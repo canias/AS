@@ -58,7 +58,7 @@ public interface PayStation {
    * return a parking receipt. A non-null object is always returned.
    * @return a valid parking receipt object.
    */ 
-  public Receipt buy();
+  public ReceiptImlp buy() throws IllegalCoinException;
 
   /**
    * Cancel the present transaction. Resets the machine for a new
