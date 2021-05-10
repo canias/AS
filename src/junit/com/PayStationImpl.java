@@ -41,11 +41,12 @@ public class PayStationImpl implements PayStation {
           throws IllegalCoinException {
     switch ( coinValue ) {
     case 5: break;
+    case 10: break;
     case 25: break;  
     default: 
       throw new IllegalCoinException("Invalid coin: "+coinValue);
     }
-    insertedSoFar = coinValue;
+    insertedSoFar += coinValue;
   }
   public int readDisplay() {
     return insertedSoFar / 5 * 2;

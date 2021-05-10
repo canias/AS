@@ -67,5 +67,12 @@ public class TestPayStation {
   public void shouldRejectIllegalCoin() throws IllegalCoinException {
     ps.addPayment(17);
   }
+  
+  @Test
+  public void shouldEnter10And25CoinAndDisplay35() throws IllegalCoinException {
+	  ps.addPayment(10);
+	  ps.addPayment(25);
+	  assertEquals("Should display 14 mins for 35 cents", 35 / 5 * 2, ps.readDisplay());
+  }
 
 }
