@@ -51,10 +51,10 @@ public class PayStationImpl implements PayStation {
   public int readDisplay() {
     return insertedSoFar / 5 * 2;
   }
-  public Receipt buy() {
-    return null;
+  public ReceiptImlp buy() throws IllegalCoinException{
+	ReceiptImlp r = new ReceiptImlp(insertedSoFar);
+    return r;
   }
   public void cancel() {
   }
 }
-
